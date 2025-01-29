@@ -4,53 +4,53 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>PKMN</title>
+	<link rel="stylesheet" href="https://unpkg.com/snes.css@1.0.1/dist/snes.min.css">
 	<link rel="stylesheet" href="style.css" />
 	<link rel="manifest" href="manifest.json" />
 	<link rel="icon" href="icons/android-launchericon-48-48.png" />
 </head>
 <body onload="load_emoji('body'); refresh_message_list()">
 	<section id="contacts">
-		<div class="contact" onclick="switch_contact('slowpoke')">
+		<div class="contact snes-container has-soft-green-bg" onclick="switch_contact('slowpoke')">
 			<img src="assets/slowpoke.avif">
 		</div>
-		<div class="contact selected" onclick="switch_contact('sandslash')">
-			<img src="assets/sandslash.avif">
-		</div>
-		<div class="contact" onclick="switch_contact('gengar')">
+		<div class="contact snes-container" onclick="switch_contact('gengar')">
 			<img src="assets/gengar.avif">
 		</div>
-		<div class="contact" onclick="switch_contact('snom')">
+		<div class="contact snes-container" onclick="switch_contact('snom')">
 			<img src="assets/snom.avif">
 		</div>
 	</section>
 	<section id="chat">
-		<div id="history">
+		<div id="history" class="snes-container has-soft-green-bg">
 			 <!-- Note: history in reverse -->
+			 <span class="message snes-container them">😁😂🤣</span>
+			 <span class="message snes-container me has-white-bg">🤣</span>
 		</div>
 		<div id="new_message">
-			<div id="message_preview" class="new_message message me"></div>
+			<div id="message_preview" class="new_message message me snes-container has-white-bg"></div>
 		</div>
 	</section>
 
 	<section id="controls">
-		<div class="red" onclick="delete_emoji()">
-			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+		<div class="snes-button has-plumber-color" onclick="delete_emoji()">
+			delete</svg>
 		</div>
-		<div class="blue" onclick="send_message()">
-			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8l4 4-4 4M8 12h7"/></svg>
+		<div class="snes-button" onclick="send_message()">
+			send</svg>
 		</div>
 	</section>
 
 	<section id="emoji_selector">
 		<div class="tabs">
-			<div id="category_body" onclick="load_emoji('body')" class="selected">😀</div>
-			<div id="category_geography" onclick="load_emoji('geography')">🌎</div>
-			<div id="category_animals" onclick="load_emoji('animals')">🐹</div>
-			<div id="category_food" onclick="load_emoji('food')">🍎</div>
-			<div id="category_technology" onclick="load_emoji('technology')">🕹️</div>
-			<div id="category_symbols" onclick="load_emoji('symbols')">💛</div>
+			<div class="snes-button" id="category_body" onclick="load_emoji('body')" class="selected">😀</div>
+			<div class="snes-button" id="category_geography" onclick="load_emoji('geography')">🌎</div>
+			<div class="snes-button" id="category_animals" onclick="load_emoji('animals')">🐹</div>
+			<div class="snes-button" id="category_food" onclick="load_emoji('food')">🍎</div>
+			<div class="snes-button" id="category_technology" onclick="load_emoji('technology')">🕹️</div>
+
 		</div>
-		<div id="emoji_list">
+		<div id="emoji_list" class="snes-container">
 		</div>
 	</section>
 
