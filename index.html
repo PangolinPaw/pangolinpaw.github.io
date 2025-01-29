@@ -8,7 +8,7 @@
 	<link rel="manifest" href="manifest.json" />
 	<link rel="icon" href="icons/android-launchericon-48-48.png" />
 </head>
-<body onload="refresh_message_list()">
+<body onload="load_emoji('faces'); refresh_message_list()">
 	<section id="contacts">
 		<div class="contact" onclick="switch_contact('slowpoke')">
 			<img src="assets/slowpoke.avif">
@@ -42,13 +42,15 @@
 	</section>
 
 	<section id="emoji_selector">
+		<div class="tabs">
+			<div id="category_body" onclick="load_emoji('body')" class="selected">😀</div>
+			<div id="category_geography" onclick="load_emoji('geography')">🌎</div>
+			<div id="category_animals" onclick="load_emoji('animals')">🐹</div>
+			<div id="category_food" onclick="load_emoji('food')">🍎</div>
+			<div id="category_technology" onclick="load_emoji('technology')">🕹️</div>
+			<div id="category_symbols" onclick="load_emoji('symbols')">💛</div>
+		</div>
 		<div id="emoji_list">
-			<span class="emoji" onclick="add_emoji('😃')">😃</span>
-			<span class="emoji" onclick="add_emoji('😅')">😅</span>
-			<span class="emoji" onclick="add_emoji('😂')">😂</span>
-			<span class="emoji" onclick="add_emoji('🤔')">🤔</span>
-			<span class="emoji" onclick="add_emoji('🤨')">🤨</span>
-			<span class="emoji" onclick="add_emoji('😃')">😃</span>
 		</div>
 	</section>
 
