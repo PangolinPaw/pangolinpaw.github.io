@@ -1,0 +1,147 @@
+:root {
+	--white:	#FFF;
+	--pale: 	#EEFCEA;
+	--black: 	#000D2A;
+	--grey: 	#CFD5E1;
+	--red: 		#D03056;
+	--blue: 	#34E0FB;
+}
+
+html {
+	background-color: var(--white);
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--pale);
+	overflow: hidden;
+	width: 400px;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 10vh 65vh 5vh 20vh;
+}
+
+.blue {
+	background-color: var(--blue);
+}
+
+.red {
+	background-color: var(--red);
+}
+
+#contacts {
+	max-width: 100%;
+	overflow-y: scroll;
+	padding-left: 1em;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1em;
+}
+
+	#contacts .contact {
+		height: 65%;
+		background-color: var(--white);
+		border-radius: 10px;
+		border: solid 2px var(--black);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+		#contacts .contact img {
+			height: 100%;
+		}
+
+	#contacts .selected {
+		border-color: var(--red);
+	}
+
+#chat {
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: auto 2em;
+}
+
+	#chat #history {
+		height: 95%;
+		width: 95%;
+		justify-self: center;
+		overflow-y: scroll;
+		background-color: var(--white);
+		border: solid 2px var(--red);
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column-reverse;
+		padding-bottom: 1em;
+	}
+
+	#chat .message {
+		font-size: 1.8em;
+		padding: 0.25em 0.5em;
+		margin: 0 0.5em 0.5em 0.5em;
+		background-color: var(--pale);
+	}
+
+	#chat .me {
+		border-radius: 10px 0 10px 10px;
+		align-self: flex-end;
+	}
+
+	#chat .them {
+		border-radius: 0 10px 10px 10px;
+		align-self: flex-start;
+	}
+
+	#chat #new_message {
+		width: 95%;
+		justify-self: center;
+		display: flex;
+	}
+
+		#chat #new_message .message {
+			background-color: var(--pale);
+			border: solid 2px var(--red);
+			border-radius: 10px;
+			width: 90%;
+			height: 1em;
+			display: flex;
+			align-items: center;
+		}
+
+#controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1em;
+}
+
+	#controls div {
+		width: 45%;
+		height: 2em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+
+#emoji_selector {
+	background-color: var(--pale);
+	height: 100%;
+	padding: 0.5em 0;
+}
+
+	#emoji_selector #emoji_list {
+		height: 90%;
+		overflow-y: scroll;
+		width: 90%;
+		align-self: center;
+		justify-self: center;
+		background-color: var(--pale);
+		font-size: 1.8em;
+	}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PKMN</title>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="manifest" href="manifest.json" />
+	<link rel="icon" href="icons/android-launchericon-48-48.png" />
+</head>
+<body onload="refresh_message_list()">
+	<section id="contacts">
+		<div class="contact" onclick="switch_contact('slowpoke')">
+			<img src="assets/slowpoke.avif">
+		</div>
+		<div class="contact selected" onclick="switch_contact('sandslash')">
+			<img src="assets/sandslash.avif">
+		</div>
+		<div class="contact" onclick="switch_contact('gengar')">
+			<img src="assets/gengar.avif">
+		</div>
+		<div class="contact" onclick="switch_contact('snom')">
+			<img src="assets/snom.avif">
+		</div>
+	</section>
+	<section id="chat">
+		<div id="history">
+			 <!-- Note: history in reverse -->
+		</div>
+		<div id="new_message">
+			<div id="message_preview" class="new_message message me"></div>
+		</div>
+	</section>
+
+	<section id="controls">
+		<div class="red" onclick="delete_emoji()">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+		</div>
+		<div class="blue" onclick="send_message()">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8l4 4-4 4M8 12h7"/></svg>
+		</div>
+	</section>
+
+	<section id="emoji_selector">
+		<div id="emoji_list">
+			<span class="emoji" onclick="add_emoji('😃')">😃</span>
+			<span class="emoji" onclick="add_emoji('😅')">😅</span>
+			<span class="emoji" onclick="add_emoji('😂')">😂</span>
+			<span class="emoji" onclick="add_emoji('🤔')">🤔</span>
+			<span class="emoji" onclick="add_emoji('🤨')">🤨</span>
+			<span class="emoji" onclick="add_emoji('😃')">😃</span>
+		</div>
+	</section>
+
+	<script src="chat.js" defer></script>
+
+	<script>
+	  if ("serviceWorker" in navigator) {
+	    navigator.serviceWorker.register("service_worker.js");
+	  }
+	</script>
+
+</body>
+</html>
+
