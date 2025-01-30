@@ -1,6 +1,39 @@
 var SELECTED_CONTACT = ''
-var MY_CODE = 'sandslash'		 // debug placeholder
-var MY_PASSWORD = '6Mf7smuP' // debug placeholder
+var MY_CODE = ''
+var MY_PASSWORD = ''
+
+function startup() {
+	console.log('startup()')
+	var my_data = localStorage.getItem('my_data')
+	if (my_data === null) {
+		// New user
+		my_data = {
+			'friend_code':generate_id(),
+			'password':generate_id()
+		}
+		localStorage.setItem('my_data', JSON.stringify(my_data))
+	} else {
+		// Returning user
+		my_data = JSON.parse(my_data)
+	}
+	MY_CODE = my_data['friend_code']
+	MY_PASSWORD = my_data['password']
+	console.log('my_code = ' + MY_CODE + ', my_password = ' + MY_PASSWORD) // debug
+}
+
+function generate_id() {
+	//https://stackoverflow.com/a/1349426/12825882
+	length = 6
+  let result = '';
+  const characters = 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+  const charactersLength = characters.length;
+  let counter = 0;
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    counter += 1;
+  }
+  return result;
+}
 
 function switch_contact(friend_code) {
 	SELECTED_CONTACT = friend_code
@@ -62,12 +95,6 @@ function get_messages(friend_code) {
 	xmlhttp.open("POST", "https://www.gareth-murden.com/pkmn/receive/" + friend_code, true);
 	xmlhttp.setRequestHeader('Content-Type', 'application/json')
 	xmlhttp.send(JSON.stringify({'my_code':MY_CODE, 'password':MY_PASSWORD}));
-
-	/*Notification.requestPermission().then((result) => {
-	    if (result === "granted") {
-	      notify('Notifications enabled', 'You will now receive notifications when new messages arrive.');
-	    }
-	})*/
 }
 
 function post_message(message) {
@@ -84,16 +111,6 @@ function notify(title, body) {
 	};
 	new Notification(title, options);
 }
-
-/*const button = document.getElementById("notifications");
-button.addEventListener("click", () => {
-  Notification.requestPermission().then((result) => {
-    if (result === "granted") {
-      randomNotification();
-    }
-  });
-});
-*/
 
 function load_emoji(category) {
 	categories = [

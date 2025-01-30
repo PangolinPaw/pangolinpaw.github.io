@@ -9,7 +9,7 @@
 	<link rel="manifest" href="manifest.json" />
 	<link rel="icon" href="icons/android-launchericon-48-48.png" />
 </head>
-<body onload="load_emoji('body'); refresh_message_list()">
+<body onload="startup(); load_emoji('body'); refresh_message_list()">
 	<section id="contacts">
 		<div class="contact snes-container has-soft-green-bg" onclick="switch_contact('slowpoke')">
 			<img src="assets/slowpoke.avif">
@@ -46,7 +46,6 @@
 			<div class="snes-button" id="category_animals" onclick="load_emoji('animals')">🐹</div>
 			<div class="snes-button" id="category_food" onclick="load_emoji('food')">🍎</div>
 			<div class="snes-button" id="category_technology" onclick="load_emoji('technology')">🕹️</div>
-
 		</div>
 		<div id="emoji_list" class="snes-container">
 		</div>
