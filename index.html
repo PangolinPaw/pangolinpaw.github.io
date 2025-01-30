@@ -9,7 +9,7 @@
 	<link rel="manifest" href="manifest.json" />
 	<link rel="icon" href="icons/android-launchericon-48-48.png" />
 </head>
-<body onload="startup(); load_emoji('body'); refresh_message_list()">
+<body onload="startup(); load_emoji('body');">
 	<section id="modal_background">
 		<div class="modal snes-container" id="add_contact_modal">
 			<label for="my_code">Your friend code</label>
@@ -340,21 +340,13 @@
 				<option>💫</option>
 			</select>
 			<div class="modal_buttons">
-				<a href="/" class="snes-button has-plumber-color">back</a>
+				<a href="/" class="snes-button has-ember-color">back</a>
 				<div class="snes-button " onclick="add_friend()">add</div>
 			</div>
+			<div class="snes-button has-plumber-color" onclick="reset_all()" style="text-align: center;">reset app</div>
 		</div>
 	</section>
 	<section id="contacts">
-		<div class="contact snes-container has-soft-green-bg" onclick="switch_contact('slowpoke')">
-			<img src="assets/slowpoke.avif">
-		</div>
-		<div class="contact snes-container" onclick="switch_contact('gengar')">
-			<img src="assets/gengar.avif">
-		</div>
-		<div class="contact snes-container" onclick="switch_contact('snom')">
-			<img src="assets/snom.avif">
-		</div>
 		<div class="contact snes-button" id="add_contact" onclick="show_modal('add_contact_modal')">
 			<span>+</span>
 		</div>
@@ -368,7 +360,7 @@
 	</section>
 
 	<section id="controls">
-		<div class="snes-button has-plumber-color" onclick="delete_emoji()">
+		<div class="snes-button has-ember-color" onclick="delete_emoji()">
 			delete</svg>
 		</div>
 		<div class="snes-button" onclick="send_message()">

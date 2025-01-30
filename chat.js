@@ -2,6 +2,11 @@ var SELECTED_CONTACT = ''
 var MY_CODE = ''
 var MY_PASSWORD = ''
 
+function reset_all() {
+	localStorage.clear()
+	window.location.reload()
+}
+
 function startup() {
 	console.log('startup()')
 	var my_data = localStorage.getItem('my_data')
@@ -20,6 +25,7 @@ function startup() {
 	MY_CODE = my_data['friend_code']
 	MY_PASSWORD = my_data['password']
 	show_friends()
+	refresh_message_list()
 }
 
 function show_friends() {
@@ -71,7 +77,9 @@ function switch_contact(friend_code) {
 }
 
 function refresh_message_list() {
-	setInterval(get_messages(SELECTED_CONTACT), 6000)
+	const interval = setInterval(function () {
+		get_messages(SELECTED_CONTACT)
+	}, 30000)
 }
 
 function add_emoji(emoji) {
@@ -105,7 +113,6 @@ function get_messages(friend_code) {
 		if (xmlhttp.readyState == XMLHttpRequest.DONE) { 
 			if (xmlhttp.status == 200) {
 				response = JSON.parse(xmlhttp.responseText)
-				console.log(response)
 				if (response['success']) {
 					var chat_history = document.querySelector('#history')
 					var messages = ''
