@@ -1,4 +1,4 @@
-const VERSION = '0.4'
+const VERSION = '0.5'
 
 const CACHE_NAME = `pokechat_${VERSION}`;
 
