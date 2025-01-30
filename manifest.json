@@ -3,9 +3,9 @@
   "short_name": "PokeChat",
   "description": "Pokemon-themed, emoji-only messaging app",
   "start_url": "/",
-  "theme_color": "#EEFCEA",
-  "background_color": "#EEFCEA",
-  "display": "minimal-ui",
+  "theme_color": "#4BB244",
+  "background_color": "#F0F0F4",
+  "display": "standalone",
   "icons": [
     {
       "src": "icon/android-launchericon-512-512.png",

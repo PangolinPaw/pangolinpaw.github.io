@@ -23,7 +23,7 @@ body {
 	width: 400px;
 	display: grid;
 	grid-template-columns: 100%;
-	grid-template-rows: 10vh 55vh 5vh 30vh;
+	grid-template-rows: 10vh 50vh 5vh 35vh;
 }
 
 .blue {
@@ -108,6 +108,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	gap: 1em;
+	margin-top: -1em;
 }
 
 	#controls div {
@@ -124,7 +125,8 @@ body {
 	height: 100%;
 	padding: 0.5em 0;
 	display: grid;
-	grid-template-rows: 7vh 23vh;
+	margin-top: 1vh;
+	grid-template-rows: 6vh 28vh;
 	grid-template-columns: 100%;
 }
 
