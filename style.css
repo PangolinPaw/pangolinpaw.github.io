@@ -92,10 +92,6 @@ body {
 			height: 5vh;
 		}
 
-	#contacts .selected {
-		border-color: var(--red);
-	}
-
 	#contacts #add_contact span {
 		font-size: 2em;
 	}

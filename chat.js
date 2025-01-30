@@ -32,7 +32,7 @@ function show_friends() {
 	var friends = JSON.parse(localStorage.getItem('friends'))
 	var friend_list = ''
 	for (var i = 0; i < friends.length; i++) {
-			friend_list += '<div class="contact snes-container" onclick="switch_contact(\'' + friends[i]['friend_code'] + '\')">' + friends[i]['icon'] + '</div>'
+			friend_list += '<div class="contact friend_button snes-container" id="' + friends[i]['friend_code'] + '" onclick="switch_contact(\'' + friends[i]['friend_code'] + '\')">' + friends[i]['icon'] + '</div>'
 	}
 	var contacts = document.querySelector('#contacts')
 	contacts.innerHTML = friend_list + '<div class="contact snes-button" id="add_contact" onclick="show_modal(\'add_contact_modal\')"><span>+</span></div>'
@@ -73,6 +73,11 @@ function add_friend() {
 
 function switch_contact(friend_code) {
 	SELECTED_CONTACT = friend_code
+	var contacts = document.getElementsByClassName('friend_button')
+	for (var i = 0; i < contacts.length; i++) {
+		contacts[i].classList.remove('has-soft-green-bg')
+	}
+	document.querySelector('#' + friend_code).classList.add('has-soft-green-bg')
 	get_messages(friend_code)
 }
 
