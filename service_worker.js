@@ -1,6 +1,6 @@
-const VERSION = '0.5'
+const VERSION = '1.0'
 
-const CACHE_NAME = `pokechat_${VERSION}`;
+const CACHE_NAME = `emojichat_${VERSION}`;
 
 const APP_STATIC_RESOURCES = [
 	'/',

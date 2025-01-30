@@ -1,7 +1,7 @@
 {
-  "name": "PokeChat: Emoji-only messaging",
-  "short_name": "PokeChat",
-  "description": "Pokemon-themed, emoji-only messaging app",
+  "name": "EmojiChat: Emoji-only messaging",
+  "short_name": "EmojiChat",
+  "description": "Retro theme emoji-only messaging app",
   "start_url": "/",
   "theme_color": "#4BB244",
   "background_color": "#F0F0F4",
