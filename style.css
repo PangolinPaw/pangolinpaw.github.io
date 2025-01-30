@@ -26,6 +26,43 @@ body {
 	grid-template-rows: 10vh 50vh 5vh 35vh;
 }
 
+#modal_background {
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.75);
+	display: none; /* set to `flex` with js */
+	align-items: center;
+	justify-content: center;
+}
+
+	#modal_background .modal {
+		width: 85vw;
+		background-color: var(--white);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+		#modal_background .modal input {
+			color: var(--black);
+			text-align: center;
+		}
+
+		#modal_background .modal label {
+			margin-bottom: 0.5em;
+		}
+
+
+		#modal_background .modal .modal_buttons {
+			display: flex;
+			justify-content: space-between;
+		}
+
 .blue {
 	background-color: var(--blue);
 }
@@ -57,6 +94,10 @@ body {
 
 	#contacts .selected {
 		border-color: var(--red);
+	}
+
+	#contacts #add_contact span {
+		font-size: 2em;
 	}
 
 #chat {

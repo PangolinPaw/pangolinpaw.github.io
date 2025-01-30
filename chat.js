@@ -12,13 +12,24 @@ function startup() {
 			'password':generate_id()
 		}
 		localStorage.setItem('my_data', JSON.stringify(my_data))
+		localStorage.setItem('friends', JSON.stringify([]))
 	} else {
 		// Returning user
 		my_data = JSON.parse(my_data)
 	}
 	MY_CODE = my_data['friend_code']
 	MY_PASSWORD = my_data['password']
-	console.log('my_code = ' + MY_CODE + ', my_password = ' + MY_PASSWORD) // debug
+	show_friends()
+}
+
+function show_friends() {
+	var friends = JSON.parse(localStorage.getItem('friends'))
+	var friend_list = ''
+	for (var i = 0; i < friends.length; i++) {
+			friend_list += '<div class="contact snes-container" onclick="switch_contact(\'' + friends[i]['friend_code'] + '\')">' + friends[i]['icon'] + '</div>'
+	}
+	var contacts = document.querySelector('#contacts')
+	contacts.innerHTML = friend_list + '<div class="contact snes-button" id="add_contact" onclick="show_modal(\'add_contact_modal\')"><span>+</span></div>'
 }
 
 function generate_id() {
@@ -33,6 +44,25 @@ function generate_id() {
     counter += 1;
   }
   return result;
+}
+
+function show_modal(modal_id) {
+	document.querySelector('#modal_background').style.display = 'flex';
+	document.querySelector('#' + modal_id).style.display = 'flex';
+	document.querySelector('#my_code').value = MY_CODE
+}
+
+function add_friend() {
+	var their_code = document.querySelector('#their_code').value
+	var icon_dropdown = document.querySelector('#icon')
+	var icon = icon_dropdown.options[icon_dropdown.selectedIndex].text;
+	if (their_code != '') {
+		var friends = localStorage.getItem('friends')
+		friends = JSON.parse(friends)
+		friends.push({'friend_code':their_code, 'icon':icon})
+		localStorage.setItem('friends', JSON.stringify(friends))
+	}
+	window.location.reload()
 }
 
 function switch_contact(friend_code) {
